@@ -1,0 +1,6 @@
+[Unit]
+Description=Noir Ledger HTTP healthcheck
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/noir-ledger-healthcheck.sh

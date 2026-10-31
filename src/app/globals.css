@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090706;
+  --foreground: #fff8f0;
+  --muted: #bba998;
+  --card: rgba(255, 245, 232, 0.045);
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #f7b500;
+  --accent-strong: #ff9318;
+  --accent-soft: #ffdd96;
+  --amber: #ffca56;
+  --bronze: #dc8d3b;
+  --graphite: #15110f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-space-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #090706;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(255, 179, 71, 0.2), transparent 26%),
+    radial-gradient(circle at 86% 12%, rgba(255, 214, 148, 0.14), transparent 18%),
+    radial-gradient(circle at 50% 100%, rgba(144, 93, 41, 0.16), transparent 24%),
+    linear-gradient(180deg, #16110f 0%, #0d0a09 46%, #060505 100%);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: rgba(255, 180, 0, 0.3);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 180, 0, 0.28);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #fff5df 0%, #ffd37a 42%, #ff9d1c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #fff8ea 0%, #ffe5a8 38%, #ffbf47 72%, #ff9620 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mesh-overlay {
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.panel-highlight {
+  position: relative;
+}
+
+.panel-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 191, 71, 0.18),
+    transparent 45%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.safe-top {
+  padding-top: max(0px, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+}
+
+.safe-bottom-offset {
+  bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+}

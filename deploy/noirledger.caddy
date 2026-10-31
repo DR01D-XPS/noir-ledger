@@ -1,0 +1,5 @@
+noirledger.ru, www.noirledger.ru {
+  encode gzip zstd
+
+  reverse_proxy 172.19.0.1:3000
+}

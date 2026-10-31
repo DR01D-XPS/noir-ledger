@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Noir Ledger healthcheck every minute
+
+[Timer]
+OnBootSec=45s
+OnUnitActiveSec=1min
+Unit=noir-ledger-healthcheck.service
+
+[Install]
+WantedBy=timers.target
